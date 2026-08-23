@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Guruxy Home — Mockup de referencia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --primary:#452767; --primary-dark:#2c1943; --primary-darkest:#170d24; --secondary:#ffc813;
+    --ink:#1a1a1a; --muted:#6b7280; --border:#e5e7eb;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#f0f0f2;}
+  a{color:var(--secondary);}
+  button{font-family:inherit;cursor:pointer;}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:700;font-size:15px;padding:12px 24px;border:none;min-height:44px;}
+  .btn-primary{background:var(--secondary);color:var(--primary-dark);}
+  .btn-outline{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35);}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:999px;}
+
+  /* toolbar */
+  .toolbar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .toolbar h1{font-size:15px;margin:0;color:var(--primary);}
+  .toolbar .sub{font-size:12px;color:var(--muted);margin:2px 0 0;}
+  .switch{display:flex;background:#f0f0f2;border-radius:999px;padding:4px;gap:4px;}
+  .switch button{border:none;background:transparent;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:700;color:var(--muted);}
+  .switch button.active{background:var(--primary);color:#fff;}
+  .toolbar .live-link{font-size:12px;font-weight:600;color:var(--primary);text-decoration:none;border:1px solid var(--border);padding:8px 14px;border-radius:8px;}
+
+  .view{display:none;}
+  .view.active{display:block;}
+  .phone-wrap{max-width:420px;margin:32px auto;background:#111;border-radius:36px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.25);}
+  .phone-screen{background:#fff;border-radius:24px;overflow:hidden;max-height:85vh;overflow-y:auto;}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <h1>Guruxy — Mockup del Home</h1>
+    <p class="sub">Referencia estática para revisión. Contenido pendiente de aprobación final con la agencia.</p>
+  </div>
+  <div class="switch">
+    <button id="btn-desktop" class="active" onclick="showView('desktop')">Vista Desktop</button>
+    <button id="btn-mobile" onclick="showView('mobile')">Vista Mobile</button>
+  </div>
+  <a class="live-link" href="https://claude.ai/code/artifact/1e11234b-6a93-487e-a48e-31d0da3b2e0a" target="_blank" rel="noopener">Ver canvas interactivo →</a>
+</div>
+
+<!-- ============================= DESKTOP ============================= -->
+<div id="view-desktop" class="view active">
+<div style="display:flex;flex-direction:column;width:100%;">
+
+  <nav style="position:sticky;top:0;z-index:50;background:var(--primary);box-shadow:0 2px 12px rgba(0,0,0,.15);">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;">
+      <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:20px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ffc813" stroke-width="2"/><circle cx="9" cy="11" r="1.5" fill="#ffc813"/><circle cx="15" cy="11" r="1.5" fill="#ffc813"/></svg>
+        Guruxy
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;flex:1;justify-content:center;position:relative;">
+        <button onclick="toggleNav('d')" style="display:flex;align-items:center;gap:4px;background:transparent;border:none;color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:8px;">Categorías <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button onclick="toggleNav('d')" style="display:flex;align-items:center;gap:4px;background:transparent;border:none;color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:8px;">Para especialistas <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div id="nav-panel-d" style="display:none;position:absolute;top:56px;left:0;right:0;max-width:640px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.25);padding:20px;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px;">Para clientes</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Buscar especialistas</a>
+              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Mis reservas</a>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px;">Para especialistas</p>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Mi oficina virtual</a>
+              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Agenda y pagos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="padding:9px 20px;font-size:13px;">Iniciar sesión</button>
+    </div>
+  </nav>
+
+  <section style="position:relative;background:linear-gradient(180deg, var(--primary-dark), var(--primary-darkest));color:#fff;overflow:hidden;">
+    <div class="container" style="display:flex;gap:56px;padding:72px 24px;align-items:center;flex-wrap:wrap;">
+      <div style="flex:1;min-width:320px;display:flex;flex-direction:column;gap:28px;">
+        <button class="btn" style="background:#dc2626;color:#fff;width:fit-content;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          ¿Cómo funciona Guruxy?
+        </button>
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:520px;">
+          <p style="font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c4a6e0;margin:0;">La plataforma para conectar</p>
+          <h1 style="font-size:44px;line-height:1.1;font-weight:800;margin:0;">Conecta con especialistas y transforma tu experiencia</h1>
+          <p style="font-size:17px;line-height:1.6;color:#d6cbe0;margin:0;">Guruxy conecta especialistas y clientes en un solo lugar. Gestiona tu agenda, recibe pagos y realiza reuniones en vivo de forma sencilla, segura y profesional.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button class="btn btn-primary">Quiero ser cliente</button>
+          <button class="btn btn-outline">Quiero ser especialista</button>
+        </div>
+      </div>
+      <div style="flex:1;min-width:320px;max-width:480px;">
+        <div style="background:rgba(15,8,24,.7);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;backdrop-filter:blur(12px);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:18px;">
+            <div>
+              <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c4a6e0;margin:0 0 4px;">Panel de gestión</p>
+              <p style="font-size:19px;font-weight:700;margin:0;">Todo bajo control</p>
+            </div>
+            <span class="badge" style="background:rgba(16,185,129,.15);color:#6ee7b7;">Activo</span>
+          </div>
+          <div style="background:rgba(0,0,0,.25);border-radius:12px;padding:16px;">
+            <p style="font-size:11px;color:#a996b8;text-transform:uppercase;letter-spacing:.05em;margin:0 0 4px;">Próxima sesión</p>
+            <p style="font-size:16px;font-weight:700;margin:0;">Mentoría UX con Ana Martínez</p>
+            <p style="font-size:13px;color:#a996b8;margin:6px 0 0;">Hoy · 6:00 PM GMT-5</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;">
+              <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px;">
+                <p style="font-size:11px;color:#a996b8;margin:0;">Ingresos estimados</p>
+                <p style="font-size:16px;font-weight:700;margin:2px 0 0;">$120 USD</p>
+              </div>
+              <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px;">
+                <p style="font-size:11px;color:#a996b8;margin:0;">Nuevos clientes</p>
+                <p style="font-size:16px;font-weight:700;margin:2px 0 0;">48 este mes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;min-height:460px;display:flex;align-items:center;overflow:hidden;">
+    <img src="images/homepage.jpg" alt="Usuario usando Guruxy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(44,25,67,.94), rgba(44,25,67,.55) 55%, transparent);z-index:1;"></div>
+    <div class="container" style="position:relative;z-index:2;padding:64px 24px;color:#fff;max-width:600px;">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;margin:0 0 8px;">Para usuarios</p>
+      <h2 style="font-size:52px;font-weight:900;line-height:1;margin:0 0 20px;">Beneficios</h2>
+      <div style="display:inline-block;background:var(--secondary);color:var(--primary-dark);font-weight:700;font-size:14px;padding:8px 14px;margin-bottom:24px;">Proceso Inicial: Te registras Gratis.</div>
+      <div style="display:flex;flex-direction:column;gap:14px;font-size:14px;line-height:1.5;">
+        <p style="margin:0;"><strong style="color:var(--secondary);">▸ Proceso de Registro:</strong> Tu registro en Guruxy es 100% gratuito.</p>
+        <p style="margin:0;"><strong style="color:var(--secondary);">▸ Código promocional de bienvenida:</strong> Recibes un cupón único al crear tu cuenta.</p>
+        <p style="margin:0;"><strong style="color:var(--secondary);">▸ Sin costo:</strong> Redimilo con el profesional que elijas para un diagnóstico inicial.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--primary-dark);color:#fff;">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:72px 24px;">
+      <div style="border-radius:20px;overflow:hidden;"><img src="images/homepage2.jpg" alt="Seguridad financiera" style="width:100%;display:block;" /></div>
+      <div>
+        <h2 style="font-size:32px;font-weight:300;margin:0;line-height:1.1;">Seguridad Financiera</h2>
+        <h3 style="font-size:32px;font-weight:800;margin:2px 0 20px;line-height:1.1;color:var(--secondary);">Total con Modelo Escrow</h3>
+        <p style="font-size:15px;line-height:1.6;color:#d6cbe0;margin:0 0 24px;max-width:480px;">El modelo Escrow o depósito en garantía: <strong style="color:#fff;">Guruxy custodia el dinero de la transacción</strong> hasta que ambas partes cumplan con lo acordado.</p>
+        <div id="accordion-d"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--primary-darkest);color:#fff;">
+    <div class="container" style="padding:72px 24px;">
+      <div style="text-align:center;max-width:640px;margin:0 auto 40px;">
+        <p style="font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--secondary);margin:0 0 10px;">Para especialistas</p>
+        <h2 style="font-size:34px;font-weight:800;margin:0 0 12px;">Todo lo que ganás como Guru en Guruxy</h2>
+        <p style="font-size:15px;line-height:1.6;color:#b8a6c8;margin:0;">Seis formas concretas en las que la plataforma trabaja para vos.</p>
+      </div>
+      <div id="tabs-buttons-d" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px;"></div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:40px;">
+        <div id="tabs-content-d"></div>
+        <div style="text-align:center;margin-top:32px;"><button class="btn btn-primary" style="width:fit-content;padding:13px 28px;">Quiero ser Guru</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--primary-darkest);color:#fff;">
+    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:72px 24px;">
+      <div>
+        <p style="font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--secondary);margin:0 0 10px;">Para especialistas</p>
+        <h2 style="font-size:36px;font-weight:800;margin:0 0 24px;">Cómo funciona</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="margin-top:7px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--secondary);flex-shrink:0;"></span><p style="font-size:15px;line-height:1.4;font-weight:500;margin:0;">Te registrás Gratis.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="margin-top:7px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--secondary);flex-shrink:0;"></span><p style="font-size:15px;line-height:1.4;font-weight:500;margin:0;">Conseguís tu primer cliente.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="margin-top:7px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--secondary);flex-shrink:0;"></span><p style="font-size:15px;line-height:1.4;font-weight:500;margin:0;">Se descuenta una tarifa única de US$10 de ese primer servicio.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="margin-top:7px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--secondary);flex-shrink:0;"></span><p style="font-size:15px;line-height:1.4;font-weight:500;margin:0;">Durante 30 días corridos, Guruxy no te cobra comisión.</p></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="margin-top:7px;width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:8px solid var(--secondary);flex-shrink:0;"></span><p style="font-size:15px;line-height:1.4;font-weight:500;margin:0;">El 100% del dinero va a tu bolsillo.</p></div>
+        </div>
+        <p style="font-size:13px;line-height:1.5;color:#c4a6e0;margin:14px 0 0;">Tarifa plana, no un porcentaje: pagás lo mismo sin importar tu especialidad ni cuánto cobres por tu servicio.</p>
+        <button class="btn btn-primary" style="margin-top:20px;width:fit-content;">Quiero empezar a ofrecer mis servicios</button>
+      </div>
+      <div style="border-radius:20px;overflow:hidden;"><img src="images/homepage3.jpg" alt="Profesional usando Guruxy" style="width:100%;display:block;" /></div>
+    </div>
+  </section>
+
+  <section style="background:#f5f4f6;padding:80px 0;">
+    <div class="container">
+      <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+        <span class="badge" style="background:var(--primary);color:#fff;">Operativa continua</span>
+        <h2 style="font-size:32px;font-weight:800;color:var(--primary);margin:18px 0 12px;">Un flujo compartido, diferentes perspectivas</h2>
+        <p style="font-size:15px;line-height:1.6;color:var(--muted);margin:0;">Todo lo que necesitas antes, durante y después de cada sesión, en un solo lugar.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:20px;">
+        <div style="border-radius:16px;padding:28px;min-height:260px;background:linear-gradient(135deg, oklch(0.6 0.13 165), oklch(0.5 0.13 165));color:#fff;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;"><span style="font-size:40px;font-weight:800;color:rgba(255,255,255,.15);">01</span><div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M4 6h16M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2m-9 4v9m6-9v9M5 6l1 13a2 2 0 002 2h8a2 2 0 002-2l1-13"/></svg></div></div>
+          <h3 style="font-size:19px;font-weight:700;margin:24px 0 10px;">Antes de la sesión</h3>
+          <div style="width:32px;height:1px;background:rgba(255,255,255,.4);margin-bottom:16px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Brief colaborativo</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Confirmación y cobro</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Recordatorios multicanal</span></div>
+        </div>
+        <div style="border-radius:16px;padding:28px;min-height:260px;background:linear-gradient(135deg, oklch(0.6 0.13 230), oklch(0.5 0.13 230));color:#fff;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;"><span style="font-size:40px;font-weight:800;color:rgba(255,255,255,.15);">02</span><div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div></div>
+          <h3 style="font-size:19px;font-weight:700;margin:24px 0 10px;">Durante la sesión</h3>
+          <div style="width:32px;height:1px;background:rgba(255,255,255,.4);margin-bottom:16px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Sala segura con video HD</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Notas compartidas</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Materiales adjuntos</span></div>
+          <p style="font-size:12px;line-height:1.4;color:rgba(255,255,255,.75);margin:10px 0 0;">Del otro lado siempre hay una persona real, lista para atenderte.</p>
+        </div>
+        <div style="border-radius:16px;padding:28px;min-height:260px;background:linear-gradient(135deg, oklch(0.6 0.13 40), oklch(0.5 0.13 40));color:#fff;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;"><span style="font-size:40px;font-weight:800;color:rgba(255,255,255,.15);">03</span><div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div></div>
+          <h3 style="font-size:19px;font-weight:700;margin:24px 0 10px;">Después de la sesión</h3>
+          <div style="width:32px;height:1px;background:rgba(255,255,255,.4);margin-bottom:16px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Encuesta + rating</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Entrega de grabación</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Liquidación automática</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:72px 0;border-top:1px solid var(--border);">
+    <div class="container" style="text-align:center;max-width:640px;">
+      <h2 style="font-size:30px;font-weight:800;color:var(--primary);margin:0 0 14px;">¿Por dónde querés empezar?</h2>
+      <p style="font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 32px;">Guruxy es un mismo lugar para dos caminos distintos — elegí el tuyo.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" style="width:fit-content;padding:14px 32px;">Quiero ser cliente</button>
+        <button class="btn" style="width:fit-content;padding:14px 32px;background:var(--primary);color:#fff;">Quiero ser Guru</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<!-- ============================= MOBILE ============================= -->
+<div id="view-mobile" class="view">
+<div class="phone-wrap"><div class="phone-screen" id="mobile-content"></div></div>
+</div>
+
+<script>
+const CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="flex-shrink:0;"><path d="M20 6L9 17l-5-5"/></svg>';
+
+function showView(v){
+  document.getElementById('view-desktop').classList.toggle('active', v==='desktop');
+  document.getElementById('view-mobile').classList.toggle('active', v==='mobile');
+  document.getElementById('btn-desktop').classList.toggle('active', v==='desktop');
+  document.getElementById('btn-mobile').classList.toggle('active', v==='mobile');
+  if(v==='mobile' && !window.__mobileRendered){ renderMobile(); window.__mobileRendered = true; }
+}
+
+function toggleNav(scope){
+  const el = document.getElementById('nav-panel-'+scope);
+  const show = el.style.display !== 'grid';
+  el.style.display = show ? 'grid' : 'none';
+}
+
+// ---- shared data ----
+const accordionData = [
+  { title: 'Control Absoluto en tus Manos', content: [
+    { title: 'Presupuesto a tu medida', description: 'Tú defines cuánto puedes o quieres pagar por el servicio.' },
+    { title: 'Flexibilidad de tiempo', description: 'Eliges el horario y la urgencia que requieres.' },
+    { title: 'Modalidad a tu elección', description: 'Tú decides si necesitas el servicio de forma virtual o presencial.' }
+  ]},
+  { title: 'Adiós a la Desconfianza e Informalidad', content: [
+    { title: 'Filtro reputacional', description: 'Accedes a calificaciones reales y reseñas verificadas.' },
+    { title: 'Profesionales listos', description: 'Conectas con expertos validados y listos para trabajar.' }
+  ]},
+  { title: 'Variedad Infinita y Conexión en Un Clic', content: [
+    { title: '+20,000 opciones de servicios', description: 'Desde tecnología hasta artesanos y consultores.' },
+    { title: 'Inmediatez', description: 'Todo el catálogo disponible a un clic de distancia.' }
+  ]}
+];
+const tabsData = [
+  { title: 'Garantía de Pago', mainTitle: 'Garantía de Pago y Flujo Comercial Continuo', subtitle: 'Ganar más dinero', items: [
+    { title: 'Flujo constante de clientes', description: 'Se traduce en mayores ingresos para ti.' },
+    { title: 'Modelo Escrow', description: 'El dinero se custodia antes de trabajar, cobros rápidos y sin carteras morosas.' },
+    { title: 'Diagnóstico inicial gratuito', description: 'Estrategia para atraer clientes demostrando tu capacidad técnica.' }
+  ]},
+  { title: 'Autonomía', mainTitle: 'Autonomía y Flexibilidad de Tiempos', subtitle: 'Ganar más libertad', items: [
+    { title: 'Flexibilidad clave', description: 'Para balancear tu vida personal con la laboral.' },
+    { title: 'Control de agenda', description: 'Aceptas o rechazas solicitudes según tarifas y horarios.' },
+    { title: 'Modalidad a tu elección', description: 'Virtual o presencial, vos decidís.' }
+  ]},
+  { title: 'Agenda', mainTitle: 'Agenda Automatizada y Eficiencia Operativa', subtitle: 'Olvídate de complicaciones', items: [
+    { title: 'Sin gestión manual', description: 'Se acabó la coordinación telefónica.' },
+    { title: 'Programación en tiempo real', description: 'Sistema de agenda automatizada.' },
+    { title: 'Optimización del tiempo', description: 'Concentrate solo en tu trabajo técnico.' }
+  ]},
+  { title: 'Oficina Virtual', mainTitle: 'Oficina Virtual y Presencia Profesional', subtitle: 'Tu propia sucursal digital', items: [
+    { title: 'Infraestructura digital', description: 'Actúa como tu oficina virtual corporativa.' },
+    { title: 'Vitrina de habilidades', description: 'Mostrá servicios, portafolio y trayectoria.' },
+    { title: 'Ecosistema integrado', description: 'Pagos, notificaciones y atención al cliente.' }
+  ]},
+  { title: 'Visibilidad', mainTitle: 'Incremento de Visibilidad y Captación Activa', subtitle: 'Ganar más clientes', items: [
+    { title: 'Rompé el anonimato', description: 'Aumentá tu visibilidad digital.' },
+    { title: 'Promoción efectiva', description: 'Perfiles ultra detallados de tus servicios.' },
+    { title: 'Estrategias de enganche', description: 'Ofertas especiales personalizadas.' }
+  ]},
+  { title: 'Interacción', mainTitle: 'Interacción Directa y Construcción de Reputación', subtitle: 'Comunicación directa', items: [
+    { title: 'Canal privado', description: 'Respondé comentarios y mensajes directo.' },
+    { title: 'Historial de valor', description: 'Cada 5 estrellas valida tu calidad.' },
+    { title: 'Competencia justa', description: 'La buena atención te posiciona mejor.' }
+  ]}
+];
+
+// ---- desktop accordion ----
+let openAccD = 0;
+function renderAccordionD(){
+  const el = document.getElementById('accordion-d');
+  el.innerHTML = accordionData.map((a,i)=>`
+    <div style="border-top:1px solid rgba(255,255,255,.2);padding:16px 0;">
+      <button onclick="setAccD(${i})" style="width:100%;background:transparent;border:none;color:#fff;display:flex;justify-content:space-between;align-items:center;text-align:left;padding:0;">
+        <span style="font-size:19px;font-weight:400;">${a.title}</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform .2s;transform:rotate(${openAccD===i?180:0}deg)"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      ${openAccD===i ? `<div style="padding-top:14px;display:flex;flex-direction:column;gap:10px;">${a.content.map(c=>`<p style="font-size:14px;line-height:1.5;color:rgba(255,255,255,.85);margin:0;"><span style="font-weight:700;color:var(--secondary);">${c.title}:</span> ${c.description}</p>`).join('')}</div>` : ''}
+    </div>
+  `).join('');
+}
+function setAccD(i){ openAccD = openAccD===i ? -1 : i; renderAccordionD(); }
+
+// ---- desktop tabs ----
+let activeTabD = 0;
+function renderTabsD(){
+  document.getElementById('tabs-buttons-d').innerHTML = tabsData.map((t,i)=>`
+    <button onclick="setTabD(${i})" style="display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid ${activeTabD===i?'transparent':'rgba(255,255,255,.15)'};background:${activeTabD===i?'var(--secondary)':'rgba(255,255,255,.05)'};color:${activeTabD===i?'#2c1943':'#d6cbe0'};">${t.title}</button>
+  `).join('');
+  const t = tabsData[activeTabD];
+  document.getElementById('tabs-content-d').innerHTML = `
+    <div style="text-align:center;margin-bottom:32px;">
+      <h3 style="font-size:26px;font-weight:700;margin:0 0 12px;">${t.mainTitle}</h3>
+      <span style="display:inline-block;background:rgba(255,200,19,.12);color:var(--secondary);font-weight:700;font-size:13px;padding:8px 16px;border-radius:999px;">${t.subtitle}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:20px;">
+      ${t.items.map((item,i)=>`
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;display:flex;gap:14px;">
+          <div style="flex-shrink:0;width:30px;height:30px;border-radius:999px;background:rgba(255,200,19,.15);color:var(--secondary);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;">${i+1}</div>
+          <div><p style="font-size:15px;font-weight:700;margin:0 0 6px;">${item.title}</p><p style="font-size:13px;line-height:1.5;color:#b8a6c8;margin:0;">${item.description}</p></div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+function setTabD(i){ activeTabD = i; renderTabsD(); }
+
+// ---- init desktop ----
+renderAccordionD();
+renderTabsD();
+// replace CHECK placeholders (workaround for template literal escaping above)
+document.getElementById('view-desktop').innerHTML = document.getElementById('view-desktop').innerHTML.split('%%CHECK%%').join(CHECK);
+
+// ---- MOBILE (rendered on first switch) ----
+let openAccM = 0, activeTabM = 0, menuOpenM = false;
+function renderMobile(){
+  const html = `
+    <nav style="position:sticky;top:0;z-index:50;background:var(--primary);">
+      <div style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 16px;">
+        <div style="display:flex;align-items:center;gap:8px;color:#fff;font-weight:800;font-size:17px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ffc813" stroke-width="2"/><circle cx="9" cy="11" r="1.5" fill="#ffc813"/><circle cx="15" cy="11" r="1.5" fill="#ffc813"/></svg>
+          Guruxy
+        </div>
+        <button onclick="toggleMenuM()" style="background:transparent;border:none;padding:8px;min-width:44px;min-height:44px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">${menuOpenM ? '<path d="M18 6L6 18M6 6l12 12"/>' : '<path d="M4 6h16M4 12h16M4 18h16"/>'}</svg>
+        </button>
+      </div>
+      ${menuOpenM ? `<div style="background:#fff;padding:8px 4px 16px;box-shadow:0 12px 24px rgba(0,0,0,.15);">
+        <a href="#" style="display:block;padding:14px 20px;font-size:15px;font-weight:600;color:#1a1a1a;text-decoration:none;">Buscar especialistas</a>
+        <a href="#" style="display:block;padding:14px 20px;font-size:15px;font-weight:600;color:#1a1a1a;text-decoration:none;">Mis reservas</a>
+        <a href="#" style="display:block;padding:14px 20px;font-size:15px;font-weight:600;color:#1a1a1a;text-decoration:none;">Quiero ser especialista</a>
+      </div>` : ''}
+    </nav>
+
+    <section style="background:linear-gradient(180deg, var(--primary-dark), var(--primary-darkest));color:#fff;padding:32px 18px;display:flex;flex-direction:column;gap:16px;">
+      <p style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#c4a6e0;margin:0;">La plataforma para conectar</p>
+      <h1 style="font-size:24px;line-height:1.15;font-weight:800;margin:0;">Conecta con especialistas y transforma tu experiencia</h1>
+      <p style="font-size:14px;line-height:1.5;color:#d6cbe0;margin:0;">Gestiona tu agenda, recibe pagos y realiza reuniones en vivo de forma sencilla y segura.</p>
+      <button class="btn" style="background:var(--secondary);color:var(--primary-dark);width:100%;">Quiero ser cliente</button>
+      <button class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35);width:100%;">Quiero ser especialista</button>
+    </section>
+
+    <section style="position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden;">
+      <img src="images/homepage.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(44,25,67,.96), rgba(44,25,67,.5));"></div>
+      <div style="position:relative;padding:22px 18px;color:#fff;">
+        <p style="font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin:0 0 6px;">Para usuarios</p>
+        <h2 style="font-size:26px;font-weight:900;margin:0 0 10px;">Beneficios</h2>
+        <div style="display:inline-block;background:var(--secondary);color:var(--primary-dark);font-weight:700;font-size:12px;padding:6px 10px;">Te registrás Gratis.</div>
+      </div>
+    </section>
+
+    <section style="background:var(--primary-dark);color:#fff;padding:32px 18px;">
+      <div style="border-radius:14px;overflow:hidden;margin-bottom:18px;"><img src="images/homepage2.jpg" alt="" style="width:100%;display:block;" /></div>
+      <h2 style="font-size:20px;font-weight:800;margin:0 0 10px;color:var(--secondary);">Seguridad Financiera</h2>
+      <p style="font-size:13px;line-height:1.5;color:#d6cbe0;margin:0 0 14px;">Guruxy custodia el dinero hasta que ambas partes cumplan lo acordado.</p>
+      <div id="accordion-m"></div>
+    </section>
+
+    <section style="background:var(--primary-darkest);color:#fff;padding:32px 18px;">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--secondary);margin:0 0 8px;">Para especialistas</p>
+      <h2 style="font-size:20px;font-weight:800;margin:0 0 16px;">Todo lo que ganás como Guru</h2>
+      <div id="tabs-buttons-m" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;"></div>
+      <div id="tabs-content-m"></div>
+    </section>
+
+    <section style="background:var(--primary-darkest);color:#fff;padding:32px 18px;">
+      <h2 style="font-size:20px;font-weight:800;margin:0 0 14px;">Cómo funciona</h2>
+      <p style="font-size:12px;line-height:1.5;color:#c4a6e0;">Tarifa plana, no un porcentaje: pagás lo mismo sin importar tu especialidad.</p>
+      <div style="border-radius:14px;overflow:hidden;margin-top:14px;"><img src="images/homepage3.jpg" alt="" style="width:100%;display:block;" /></div>
+    </section>
+
+    <section style="background:#fff;padding:32px 18px;text-align:center;border-top:1px solid var(--border);">
+      <h2 style="font-size:19px;font-weight:800;color:var(--primary);margin:0 0 8px;">¿Por dónde querés empezar?</h2>
+      <button class="btn" style="background:var(--secondary);color:var(--primary-dark);width:100%;margin-top:10px;">Quiero ser cliente</button>
+      <button class="btn" style="background:var(--primary);color:#fff;width:100%;margin-top:8px;">Quiero ser Guru</button>
+    </section>
+  `;
+  document.getElementById('mobile-content').innerHTML = html;
+  renderAccordionM();
+  renderTabsM();
+}
+function toggleMenuM(){ menuOpenM = !menuOpenM; renderMobile(); }
+function renderAccordionM(){
+  document.getElementById('accordion-m').innerHTML = accordionData.map((a,i)=>`
+    <div style="border-top:1px solid rgba(255,255,255,.2);padding:12px 0;">
+      <button onclick="setAccM(${i})" style="width:100%;background:transparent;border:none;color:#fff;display:flex;justify-content:space-between;align-items:center;text-align:left;padding:0;min-height:44px;">
+        <span style="font-size:14px;">${a.title}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transform:rotate(${openAccM===i?180:0}deg);flex-shrink:0;margin-left:8px;"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      ${openAccM===i ? `<div style="padding-top:8px;display:flex;flex-direction:column;gap:8px;">${a.content.map(c=>`<p style="font-size:12px;line-height:1.5;color:rgba(255,255,255,.85);margin:0;"><span style="font-weight:700;color:var(--secondary);">${c.title}:</span> ${c.description}</p>`).join('')}</div>` : ''}
+    </div>
+  `).join('');
+}
+function setAccM(i){ openAccM = openAccM===i ? -1 : i; renderAccordionM(); }
+function renderTabsM(){
+  document.getElementById('tabs-buttons-m').innerHTML = tabsData.map((t,i)=>`
+    <button onclick="setTabM(${i})" style="padding:8px 12px;border-radius:999px;font-size:11px;font-weight:600;border:1px solid ${activeTabM===i?'transparent':'rgba(255,255,255,.15)'};background:${activeTabM===i?'var(--secondary)':'rgba(255,255,255,.05)'};color:${activeTabM===i?'#2c1943':'#d6cbe0'};">${t.title}</button>
+  `).join('');
+  const t = tabsData[activeTabM];
+  document.getElementById('tabs-content-m').innerHTML = `
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;">
+      <h3 style="font-size:16px;font-weight:700;margin:0 0 10px;text-align:center;">${t.mainTitle}</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        ${t.items.map((item,i)=>`
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;display:flex;gap:10px;">
+            <div style="flex-shrink:0;width:22px;height:22px;border-radius:999px;background:rgba(255,200,19,.15);color:var(--secondary);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">${i+1}</div>
+            <div><p style="font-size:12px;font-weight:700;margin:0 0 3px;">${item.title}</p><p style="font-size:11px;line-height:1.4;color:#b8a6c8;margin:0;">${item.description}</p></div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+function setTabM(i){ activeTabM = i; renderTabsM(); }
+</script>
+</body>
+</html>
