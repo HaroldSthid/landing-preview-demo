@@ -19,7 +19,6 @@
   .container{max-width:1200px;margin:0 auto;padding:0 24px;}
   .badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:999px;}
 
-  /* toolbar */
   .toolbar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
   .toolbar h1{font-size:15px;margin:0;color:var(--primary);}
   .toolbar .sub{font-size:12px;color:var(--muted);margin:2px 0 0;}
@@ -39,7 +38,7 @@
 <div class="toolbar">
   <div>
     <h1>Guruxy — Mockup del Home</h1>
-    <p class="sub">Referencia estática para revisión. Contenido pendiente de aprobación final con la agencia.</p>
+    <p class="sub">Referencia estática, sincronizada con el canvas vivo. Contenido pendiente de aprobación final con la agencia.</p>
   </div>
   <div class="switch">
     <button id="btn-desktop" class="active" onclick="showView('desktop')">Vista Desktop</button>
@@ -55,36 +54,56 @@
 
   <nav style="position:sticky;top:0;z-index:50;background:var(--primary);box-shadow:0 2px 12px rgba(0,0,0,.15);">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px;">
-      <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:20px;">
+      <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:20px;width:135px;height:36px;">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ffc813" stroke-width="2"/><circle cx="9" cy="11" r="1.5" fill="#ffc813"/><circle cx="15" cy="11" r="1.5" fill="#ffc813"/></svg>
         Guruxy
       </div>
-      <div style="display:flex;align-items:center;gap:4px;flex:1;justify-content:center;position:relative;">
-        <button onclick="toggleNav('d')" style="display:flex;align-items:center;gap:4px;background:transparent;border:none;color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:8px;">Categorías <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <button onclick="toggleNav('d')" style="display:flex;align-items:center;gap:4px;background:transparent;border:none;color:#fff;font-weight:600;font-size:14px;padding:10px 16px;border-radius:8px;">Para especialistas <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div id="nav-panel-d" style="display:none;position:absolute;top:56px;left:0;right:0;max-width:640px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,.25);padding:20px;grid-template-columns:1fr 1fr;gap:16px;">
-          <div>
-            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px;">Para clientes</p>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Buscar especialistas</a>
-              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Mis reservas</a>
-            </div>
-          </div>
-          <div>
-            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 10px;">Para especialistas</p>
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Mi oficina virtual</a>
-              <a href="#" style="font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;">Agenda y pagos</a>
-            </div>
-          </div>
-        </div>
+      <div style="display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border-radius:999px;padding:6px 8px 6px 16px;height:35px;box-sizing:border-box;flex:1;max-width:560px;margin:0 24px;width:619px;">
+        <span style="font-size:13px;color:#fff;font-weight:600;white-space:nowrap;">Todos</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="flex-shrink:0;opacity:.8;"><path d="M6 9l6 6 6-6"/></svg>
+        <span style="width:1px;height:20px;background:rgba(255,255,255,.2);flex-shrink:0;"></span>
+        <span style="font-size:13px;color:rgba(255,255,255,.7);flex:1;">Buscar gurús o especialidades...</span>
+        <button aria-label="Buscar" style="flex-shrink:0;width:32px;height:32px;border-radius:999px;background:var(--secondary);border:none;display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
       </div>
       <button class="btn btn-primary" style="padding:9px 20px;font-size:13px;">Iniciar sesión</button>
     </div>
   </nav>
 
+  <div style="position:sticky;top:72px;z-index:40;background:var(--primary);border-top:1px solid rgba(255,255,255,.1);">
+    <div class="container" style="padding:14px 24px;">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-size:14px;font-weight:700;color:#fff;background:oklch(0.55 0.16 250);padding:9px 18px;height:48px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:156px;">Servicios Cashback</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;background:oklch(0.55 0.15 155);padding:9px 18px;height:45px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:94px;">Médicos</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;background:oklch(0.6 0.16 55);padding:9px 18px;height:45px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:182px;">Medicina alternativa</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;background:oklch(0.5 0.14 300);padding:9px 18px;height:41px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:158px;">Preparación física</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;background:oklch(0.58 0.19 25);padding:9px 18px;height:43px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:97px;">Psíquicos</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;background:oklch(0.55 0.12 190);padding:9px 18px;height:41px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:99px;">Religiosos</span>
+        <span style="font-size:14px;font-weight:700;color:var(--primary-dark);background:var(--secondary);padding:9px 18px;height:43px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:93px;">Coaching</span>
+        <span style="font-size:14px;font-weight:700;color:#fff;background:var(--primary-darkest);padding:9px 18px;height:42px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:90px;">Idiomas</span>
+        <span style="font-size:14px;font-weight:700;color:var(--primary-dark);background:oklch(0.85 0.01 280);padding:9px 18px;height:41px;box-sizing:border-box;display:flex;align-items:center;border-radius:999px;white-space:nowrap;width:91px;">Tutores</span>
+      </div>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:11px;color:var(--muted);background:#efedf3;margin:0;padding:6px;font-family:monospace;">Medidas de referencia: buscador en el nav, 35px alto / 619px ancho (ajustado manualmente) · pestañas ajustadas manualmente (41–48px alto, 90–182px ancho, 14px de fuente) · 9 categorías · bloque sticky a 72px del top</p>
+
   <section style="position:relative;background:linear-gradient(180deg, var(--primary-dark), var(--primary-darkest));color:#fff;overflow:hidden;">
-    <div class="container" style="display:flex;gap:56px;padding:72px 24px;align-items:center;flex-wrap:wrap;">
+    <div style="width:100%;">
+      <div style="position:relative;overflow:hidden;aspect-ratio:16/9;display:flex;width:100%;">
+        <div style="flex:1;background:oklch(0.5 0.1 300);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.55 0.1 260);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.5 0.1 320);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.55 0.1 280);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.5 0.1 240);display:flex;align-items:center;justify-content:center;"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,.5);border-radius:999px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <button class="btn btn-primary" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:fit-content;padding:14px 34px;font-size:16px;">Únete</button>
+      </div>
+      <p style="font-size:11px;color:#a996b8;margin:8px 24px 0;">Placeholder — video real pendiente de asset. Este bloque es <b>full-bleed</b> (a sangre completa): sin container, llega hasta el borde del navegador.</p>
+    </div>
+    <div class="container" style="display:flex;gap:56px;padding:40px 24px 72px;align-items:center;flex-wrap:wrap;">
       <div style="flex:1;min-width:320px;display:flex;flex-direction:column;gap:28px;">
         <button class="btn" style="background:#dc2626;color:#fff;width:fit-content;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -92,13 +111,14 @@
         </button>
         <div style="display:flex;flex-direction:column;gap:16px;max-width:520px;">
           <p style="font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#c4a6e0;margin:0;">La plataforma para conectar</p>
-          <h1 style="font-size:44px;line-height:1.1;font-weight:800;margin:0;">Conecta con especialistas y transforma tu experiencia</h1>
+          <h1 style="font-size:44px;line-height:1.1;font-weight:800;margin:0;width:612px;height:116px;">Conecta con especialistas <br>y transforma tu experiencia</h1>
           <p style="font-size:17px;line-height:1.6;color:#d6cbe0;margin:0;">Guruxy conecta especialistas y clientes en un solo lugar. Gestiona tu agenda, recibe pagos y realiza reuniones en vivo de forma sencilla, segura y profesional.</p>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
           <button class="btn btn-primary">Quiero ser cliente</button>
           <button class="btn btn-outline">Quiero ser especialista</button>
         </div>
+        <p style="font-size:13px;color:#a996b8;margin:0;">Todo lo que necesitas para gestionar tus sesiones profesionales desde un solo lugar.</p>
       </div>
       <div style="flex:1;min-width:320px;max-width:480px;">
         <div style="background:rgba(15,8,24,.7);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;backdrop-filter:blur(12px);">
@@ -124,6 +144,26 @@
               </div>
             </div>
           </div>
+          <div style="margin-top:20px;">
+            <p style="font-size:13px;font-weight:700;margin:0 0 12px;">Todo lo que necesitas</p>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+              <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 12px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="1.8" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                <p style="font-size:12.5px;font-weight:600;margin:0 0 4px;">Agenda inteligente</p>
+                <p style="font-size:11px;line-height:1.4;color:#a996b8;margin:0;">Sincroniza tu disponibilidad.</p>
+              </div>
+              <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 12px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="1.8" style="margin-bottom:8px;"><rect x="2" y="5" width="20" height="15" rx="2"/><path d="M2 10h20"/></svg>
+                <p style="font-size:12.5px;font-weight:600;margin:0 0 4px;">Pagos seguros</p>
+                <p style="font-size:11px;line-height:1.4;color:#a996b8;margin:0;">Recibí pagos fácilmente.</p>
+              </div>
+              <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 12px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="1.8" style="margin-bottom:8px;"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <p style="font-size:12.5px;font-weight:600;margin:0 0 4px;">Reuniones en vivo</p>
+                <p style="font-size:11px;line-height:1.4;color:#a996b8;margin:0;">Conectá desde cualquier lugar.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -131,15 +171,16 @@
 
   <section style="position:relative;min-height:460px;display:flex;align-items:center;overflow:hidden;">
     <img src="images/homepage.jpg" alt="Usuario usando Guruxy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;" />
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(44,25,67,.94), rgba(44,25,67,.55) 55%, transparent);z-index:1;"></div>
-    <div class="container" style="position:relative;z-index:2;padding:64px 24px;color:#fff;max-width:600px;">
-      <p style="font-size:13px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;margin:0 0 8px;">Para usuarios</p>
-      <h2 style="font-size:52px;font-weight:900;line-height:1;margin:0 0 20px;">Beneficios</h2>
-      <div style="display:inline-block;background:var(--secondary);color:var(--primary-dark);font-weight:700;font-size:14px;padding:8px 14px;margin-bottom:24px;">Proceso Inicial: Te registras Gratis.</div>
-      <div style="display:flex;flex-direction:column;gap:14px;font-size:14px;line-height:1.5;">
-        <p style="margin:0;"><strong style="color:var(--secondary);">▸ Proceso de Registro:</strong> Tu registro en Guruxy es 100% gratuito.</p>
-        <p style="margin:0;"><strong style="color:var(--secondary);">▸ Código promocional de bienvenida:</strong> Recibes un cupón único al crear tu cuenta.</p>
-        <p style="margin:0;"><strong style="color:var(--secondary);">▸ Sin costo:</strong> Redimilo con el profesional que elijas para un diagnóstico inicial.</p>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(44,25,67,.94), rgba(44,25,67,.55) 55%, transparent);z-index:1;left:-327px;top:26px;">
+      <div class="container" style="position:relative;z-index:2;padding:64px 24px;color:#fff;max-width:600px;">
+        <p style="font-size:13px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;margin:0 0 8px;">Para usuarios</p>
+        <h2 style="font-size:52px;font-weight:900;line-height:1;margin:0 0 20px;">Beneficios</h2>
+        <div style="display:inline-block;background:var(--secondary);color:var(--primary-dark);font-weight:700;font-size:14px;padding:8px 14px;margin-bottom:24px;">Proceso Inicial: Te registras Gratis.</div>
+        <div style="display:flex;flex-direction:column;gap:14px;font-size:14px;line-height:1.5;">
+          <p style="margin:0;"><strong style="color:var(--secondary);">▸ Proceso de Registro:</strong> Tu registro en Guruxy es 100% gratuito.</p>
+          <p style="margin:0;"><strong style="color:var(--secondary);">▸ Código promocional de bienvenida:</strong> Recibes un cupón único al crear tu cuenta.</p>
+          <p style="margin:0;"><strong style="color:var(--secondary);">▸ Sin costo:</strong> Redimilo con el profesional que elijas para un diagnóstico inicial.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -150,7 +191,7 @@
       <div>
         <h2 style="font-size:32px;font-weight:300;margin:0;line-height:1.1;">Seguridad Financiera</h2>
         <h3 style="font-size:32px;font-weight:800;margin:2px 0 20px;line-height:1.1;color:var(--secondary);">Total con Modelo Escrow</h3>
-        <p style="font-size:15px;line-height:1.6;color:#d6cbe0;margin:0 0 24px;max-width:480px;">El modelo Escrow o depósito en garantía: <strong style="color:#fff;">Guruxy custodia el dinero de la transacción</strong> hasta que ambas partes cumplan con lo acordado.</p>
+        <p style="font-size:15px;line-height:1.6;color:#d6cbe0;margin:0 0 24px;max-width:480px;">El modelo Escrow o depósito en garantía: <strong style="color:#fff;">Guruxy custodia el dinero<br>de la transacción</strong> hasta que ambas partes cumplan con lo acordado.</p>
         <div id="accordion-d"></div>
       </div>
     </div>
@@ -160,7 +201,7 @@
     <div class="container" style="padding:72px 24px;">
       <div style="text-align:center;max-width:640px;margin:0 auto 40px;">
         <p style="font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--secondary);margin:0 0 10px;">Para especialistas</p>
-        <h2 style="font-size:34px;font-weight:800;margin:0 0 12px;">Todo lo que ganás como Guru en Guruxy</h2>
+        <h2 style="font-size:34px;font-weight:800;margin:0 0 12px;">Todo lo que ganás como <br>Guru en Guruxy</h2>
         <p style="font-size:15px;line-height:1.6;color:#b8a6c8;margin:0;">Seis formas concretas en las que la plataforma trabaja para vos.</p>
       </div>
       <div id="tabs-buttons-d" style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px;"></div>
@@ -202,26 +243,26 @@
           <div style="display:flex;justify-content:space-between;align-items:flex-start;"><span style="font-size:40px;font-weight:800;color:rgba(255,255,255,.15);">01</span><div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M4 6h16M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2m-9 4v9m6-9v9M5 6l1 13a2 2 0 002 2h8a2 2 0 002-2l1-13"/></svg></div></div>
           <h3 style="font-size:19px;font-weight:700;margin:24px 0 10px;">Antes de la sesión</h3>
           <div style="width:32px;height:1px;background:rgba(255,255,255,.4);margin-bottom:16px;"></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Brief colaborativo</span></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Confirmación y cobro</span></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Recordatorios multicanal</span></div>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Brief colaborativo</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Confirmación y cobro</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Recordatorios multicanal</p>
         </div>
         <div style="border-radius:16px;padding:28px;min-height:260px;background:linear-gradient(135deg, oklch(0.6 0.13 230), oklch(0.5 0.13 230));color:#fff;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;"><span style="font-size:40px;font-weight:800;color:rgba(255,255,255,.15);">02</span><div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div></div>
           <h3 style="font-size:19px;font-weight:700;margin:24px 0 10px;">Durante la sesión</h3>
           <div style="width:32px;height:1px;background:rgba(255,255,255,.4);margin-bottom:16px;"></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Sala segura con video HD</span></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Notas compartidas</span></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Materiales adjuntos</span></div>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Sala segura con video HD</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Notas compartidas</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Materiales adjuntos</p>
           <p style="font-size:12px;line-height:1.4;color:rgba(255,255,255,.75);margin:10px 0 0;">Del otro lado siempre hay una persona real, lista para atenderte.</p>
         </div>
         <div style="border-radius:16px;padding:28px;min-height:260px;background:linear-gradient(135deg, oklch(0.6 0.13 40), oklch(0.5 0.13 40));color:#fff;">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;"><span style="font-size:40px;font-weight:800;color:rgba(255,255,255,.15);">03</span><div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div></div>
           <h3 style="font-size:19px;font-weight:700;margin:24px 0 10px;">Después de la sesión</h3>
           <div style="width:32px;height:1px;background:rgba(255,255,255,.4);margin-bottom:16px;"></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Encuesta + rating</span></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Entrega de grabación</span></div>
-          <div style="display:flex;align-items:center;gap:8px;margin:0 0 8px;">%%CHECK%%<span style="font-size:13px;color:rgba(255,255,255,.9);">Liquidación automática</span></div>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Encuesta + rating</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Entrega de grabación</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 8px;display:flex;align-items:center;gap:8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Liquidación automática</p>
         </div>
       </div>
     </div>
@@ -238,6 +279,48 @@
     </div>
   </section>
 
+  <footer style="background:var(--primary-dark);color:#fff;">
+    <div class="container" style="padding:48px 24px 32px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,.04);border-radius:16px;margin:32px auto 0;max-width:1152px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <div>
+          <p style="font-size:20px;font-weight:800;margin:0 0 6px;">¿Eres Gurú?</p>
+          <p style="font-size:14px;color:#d6cbe0;margin:0;max-width:440px;">Únete hoy mismo y forma parte de la red de especialistas que impulsa resultados extraordinarios.</p>
+        </div>
+        <button class="btn btn-primary" style="width:fit-content;padding:13px 28px;">ÚNETE AHORA</button>
+      </div>
+    </div>
+    <div class="container" style="padding:40px 24px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:19px;margin-bottom:12px;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ffc813" stroke-width="2"/><circle cx="9" cy="11" r="1.5" fill="#ffc813"/><circle cx="15" cy="11" r="1.5" fill="#ffc813"/></svg>
+          Guruxy
+        </div>
+        <p style="font-size:13.5px;line-height:1.6;color:#b8a6c8;margin:0;max-width:320px;">Conectamos a personas con expertos en múltiples disciplinas para resolver dudas y acelerar sus proyectos.</p>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--secondary);margin:0 0 14px;">Enlaces</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Preguntas frecuentes</a>
+          <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Privacidad</a>
+          <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Términos y condiciones</a>
+          <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Políticas de datos</a>
+          <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--secondary);margin:0 0 14px;">Seguinos</p>
+        <div style="display:flex;gap:10px;">
+          <a href="#" aria-label="Facebook" style="width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8.2h2.7l.4-3.2h-3.1V7.4c0-.9.3-1.5 1.6-1.5h1.7V3.1C15.9 3 14.9 3 13.7 3c-2.5 0-4.2 1.5-4.2 4.3v2.3H6.8v3.2h2.7V21h4z"/></svg></a>
+          <a href="#" aria-label="Instagram" style="width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn" style="width:44px;height:44px;border-radius:999px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 8.5H3.56V20h3.38V8.5zM5.25 3.25a1.96 1.96 0 100 3.92 1.96 1.96 0 000-3.92zM20.44 20h-3.37v-5.9c0-1.4-.03-3.2-1.95-3.2-1.96 0-2.26 1.53-2.26 3.1V20H9.5V8.5h3.24v1.57h.05c.45-.85 1.56-1.75 3.2-1.75 3.43 0 4.06 2.26 4.06 5.2V20z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="padding:20px 24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <p style="font-size:12.5px;color:#a996b8;margin:0;">© Guruxy, 2026. Todos los derechos reservados.</p>
+      <p style="font-size:12.5px;color:#a996b8;margin:0;">Sigamos construyendo la mejor comunidad de expertos en LATAM.</p>
+    </div>
+  </footer>
 </div>
 </div>
 
@@ -247,8 +330,6 @@
 </div>
 
 <script>
-const CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="flex-shrink:0;"><path d="M20 6L9 17l-5-5"/></svg>';
-
 function showView(v){
   document.getElementById('view-desktop').classList.toggle('active', v==='desktop');
   document.getElementById('view-mobile').classList.toggle('active', v==='mobile');
@@ -257,13 +338,6 @@ function showView(v){
   if(v==='mobile' && !window.__mobileRendered){ renderMobile(); window.__mobileRendered = true; }
 }
 
-function toggleNav(scope){
-  const el = document.getElementById('nav-panel-'+scope);
-  const show = el.style.display !== 'grid';
-  el.style.display = show ? 'grid' : 'none';
-}
-
-// ---- shared data ----
 const accordionData = [
   { title: 'Control Absoluto en tus Manos', content: [
     { title: 'Presupuesto a tu medida', description: 'Tú defines cuánto puedes o quieres pagar por el servicio.' },
@@ -312,7 +386,6 @@ const tabsData = [
   ]}
 ];
 
-// ---- desktop accordion ----
 let openAccD = 0;
 function renderAccordionD(){
   const el = document.getElementById('accordion-d');
@@ -328,7 +401,6 @@ function renderAccordionD(){
 }
 function setAccD(i){ openAccD = openAccD===i ? -1 : i; renderAccordionD(); }
 
-// ---- desktop tabs ----
 let activeTabD = 0;
 function renderTabsD(){
   document.getElementById('tabs-buttons-d').innerHTML = tabsData.map((t,i)=>`
@@ -352,14 +424,10 @@ function renderTabsD(){
 }
 function setTabD(i){ activeTabD = i; renderTabsD(); }
 
-// ---- init desktop ----
 renderAccordionD();
 renderTabsD();
-// replace CHECK placeholders (workaround for template literal escaping above)
-document.getElementById('view-desktop').innerHTML = document.getElementById('view-desktop').innerHTML.split('%%CHECK%%').join(CHECK);
 
-// ---- MOBILE (rendered on first switch) ----
-let openAccM = 0, activeTabM = 0, menuOpenM = false;
+let openAccM = 0, activeTabM = 0, menuOpenM = false, heroTextOpenM = false;
 function renderMobile(){
   const html = `
     <nav style="position:sticky;top:0;z-index:50;background:var(--primary);">
@@ -379,42 +447,141 @@ function renderMobile(){
       </div>` : ''}
     </nav>
 
-    <section style="background:linear-gradient(180deg, var(--primary-dark), var(--primary-darkest));color:#fff;padding:32px 18px;display:flex;flex-direction:column;gap:16px;">
-      <p style="font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#c4a6e0;margin:0;">La plataforma para conectar</p>
-      <h1 style="font-size:24px;line-height:1.15;font-weight:800;margin:0;">Conecta con especialistas y transforma tu experiencia</h1>
-      <p style="font-size:14px;line-height:1.5;color:#d6cbe0;margin:0;">Gestiona tu agenda, recibe pagos y realiza reuniones en vivo de forma sencilla y segura.</p>
-      <button class="btn" style="background:var(--secondary);color:var(--primary-dark);width:100%;">Quiero ser cliente</button>
-      <button class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35);width:100%;">Quiero ser especialista</button>
-    </section>
+    <div style="position:sticky;top:60px;z-index:40;background:var(--primary);padding:12px 16px 14px;border-top:1px solid rgba(255,255,255,.1);">
+      <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border-radius:999px;padding:10px 16px;height:44px;box-sizing:border-box;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="flex-shrink:0;opacity:.8;"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <span style="font-size:13px;color:rgba(255,255,255,.75);">Buscar gurús o especialidades...</span>
+      </div>
+      <div style="display:flex;gap:8px;overflow-x:auto;margin-top:12px;padding-bottom:2px;">
+        <span style="flex-shrink:0;min-width:150px;text-align:center;font-size:12px;font-weight:700;color:#fff;background:oklch(0.55 0.16 250);padding:9px 16px;height:38px;box-sizing:border-box;border-radius:999px;white-space:nowrap;display:flex;align-items:center;justify-content:center;">Servicios Cashback</span>
+        <span style="flex-shrink:0;min-width:110px;text-align:center;font-size:12px;font-weight:700;color:var(--primary-dark);background:var(--secondary);padding:9px 16px;height:38px;box-sizing:border-box;border-radius:999px;white-space:nowrap;display:flex;align-items:center;justify-content:center;">Médicos</span>
+        <span style="flex-shrink:0;min-width:165px;text-align:center;font-size:12px;font-weight:700;color:#fff;background:oklch(0.6 0.16 45);padding:9px 16px;height:38px;box-sizing:border-box;border-radius:999px;white-space:nowrap;display:flex;align-items:center;justify-content:center;">Medicina alternativa</span>
+        <span style="flex-shrink:0;min-width:150px;text-align:center;font-size:12px;font-weight:700;color:#fff;background:oklch(0.5 0.14 300);padding:9px 16px;height:38px;box-sizing:border-box;border-radius:999px;white-space:nowrap;display:flex;align-items:center;justify-content:center;">Preparación física</span>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:10px;color:var(--muted);background:#efedf3;margin:0;padding:5px;font-family:monospace;">Buscador 44px alto · pestañas 38px alto / 110–165px ancho · sticky a 60px del top</p>
 
-    <section style="position:relative;min-height:320px;display:flex;align-items:flex-end;overflow:hidden;">
-      <img src="images/homepage.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
-      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(44,25,67,.96), rgba(44,25,67,.5));"></div>
-      <div style="position:relative;padding:22px 18px;color:#fff;">
-        <p style="font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin:0 0 6px;">Para usuarios</p>
-        <h2 style="font-size:26px;font-weight:900;margin:0 0 10px;">Beneficios</h2>
-        <div style="display:inline-block;background:var(--secondary);color:var(--primary-dark);font-weight:700;font-size:12px;padding:6px 10px;">Te registrás Gratis.</div>
+    <section style="background:linear-gradient(180deg, var(--primary-dark), var(--primary-darkest));color:#fff;padding:24px 20px 40px;display:flex;flex-direction:column;gap:20px;">
+      <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;display:flex;">
+        <div style="flex:1;background:oklch(0.5 0.1 300);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.55 0.1 260);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.5 0.1 320);display:flex;align-items:center;justify-content:center;border-right:1px solid rgba(255,255,255,.15);"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="flex:1;background:oklch(0.55 0.1 280);display:flex;align-items:center;justify-content:center;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" opacity=".7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,.5);border-radius:999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg></div>
+        <button class="btn btn-primary" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:fit-content;padding:10px 24px;font-size:13px;">Únete</button>
+      </div>
+      <p style="font-size:10px;color:#a996b8;margin:-8px 0 0;">Placeholder — video real pendiente de asset.</p>
+
+      <button class="btn" style="background:#dc2626;color:#fff;width:fit-content;padding:10px 18px;font-size:13px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        ¿Cómo funciona?
+      </button>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#c4a6e0;margin:0;">La plataforma para conectar</p>
+        <h1 style="font-size:20px;line-height:1.15;font-weight:800;margin:0;">Conecta con especialistas <br>y transforma tu experiencia</h1>
+        <button onclick="toggleHeroTextM()" style="display:flex;align-items:center;gap:6px;background:transparent;border:none;color:var(--secondary);font-size:12px;font-weight:700;padding:4px 0;min-height:44px;">
+          ${heroTextOpenM ? 'Ocultar descripción' : 'Ver descripción'}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="transition:transform .2s;transform:rotate(${heroTextOpenM?180:0}deg)"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        ${heroTextOpenM ? `<p style="font-size:15px;line-height:1.5;color:#d6cbe0;margin:0;">Guruxy conecta especialistas y clientes en un solo lugar. Gestiona tu agenda, recibe pagos y realiza reuniones en vivo de forma sencilla, segura y profesional.</p>` : ''}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <button class="btn" style="background:var(--secondary);color:var(--primary-dark);">Quiero ser cliente</button>
+        <button class="btn" style="background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.35);">Quiero ser especialista</button>
+      </div>
+      <p style="font-size:12px;color:#a996b8;margin:0;">Todo lo que necesitas para gestionar tus sesiones profesionales desde un solo lugar.</p>
+
+      <div style="background:rgba(15,8,24,.7);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:14px;">
+          <div>
+            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c4a6e0;margin:0 0 4px;">Panel de gestión</p>
+            <p style="font-size:17px;font-weight:700;margin:0;">Todo bajo control</p>
+          </div>
+          <span style="display:inline-flex;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(16,185,129,.15);color:#6ee7b7;">Activo</span>
+        </div>
+        <div style="background:rgba(0,0,0,.25);border-radius:12px;padding:14px;">
+          <p style="font-size:11px;color:#a996b8;text-transform:uppercase;letter-spacing:.05em;margin:0 0 4px;">Próxima sesión</p>
+          <p style="font-size:15px;font-weight:700;margin:0;">Mentoría UX con Ana Martínez</p>
+          <p style="font-size:12px;color:#a996b8;margin:6px 0 0;">Hoy · 6:00 PM GMT-5</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+            <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px;"><p style="font-size:10px;color:#a996b8;margin:0;">Ingresos estimados</p><p style="font-size:14px;font-weight:700;margin:2px 0 0;">$120 USD</p></div>
+            <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px;"><p style="font-size:10px;color:#a996b8;margin:0;">Nuevos clientes</p><p style="font-size:14px;font-weight:700;margin:2px 0 0;">48 este mes</p></div>
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <p style="font-size:13px;font-weight:700;margin:0 0 10px;">Todo lo que necesitas</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><p style="font-size:12px;margin:0;"><span style="font-weight:600;">Agenda inteligente</span> — sincroniza tu disponibilidad</p></div>
+            <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="1.8"><rect x="2" y="5" width="20" height="15" rx="2"/><path d="M2 10h20"/></svg><p style="font-size:12px;margin:0;"><span style="font-weight:600;">Pagos seguros</span> — recibí pagos fácilmente</p></div>
+            <div style="background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="1.8"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><p style="font-size:12px;margin:0;"><span style="font-weight:600;">Reuniones en vivo</span> — conectá desde cualquier lugar</p></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section style="background:var(--primary-dark);color:#fff;padding:32px 18px;">
-      <div style="border-radius:14px;overflow:hidden;margin-bottom:18px;"><img src="images/homepage2.jpg" alt="" style="width:100%;display:block;" /></div>
-      <h2 style="font-size:20px;font-weight:800;margin:0 0 10px;color:var(--secondary);">Seguridad Financiera</h2>
-      <p style="font-size:13px;line-height:1.5;color:#d6cbe0;margin:0 0 14px;">Guruxy custodia el dinero hasta que ambas partes cumplan lo acordado.</p>
+    <section style="position:relative;min-height:420px;display:flex;align-items:flex-end;overflow:hidden;">
+      <img src="images/homepage.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(44,25,67,.96), rgba(44,25,67,.5));"></div>
+      <div style="position:relative;padding:32px 20px;color:#fff;">
+        <p style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin:0 0 6px;">Para usuarios</p>
+        <h2 style="font-size:32px;font-weight:900;margin:0 0 14px;">Beneficios</h2>
+        <div style="display:inline-block;background:var(--secondary);color:var(--primary-dark);font-weight:700;font-size:13px;padding:7px 12px;margin-bottom:18px;">Proceso Inicial: Te registrás Gratis.</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.5;">
+          <p style="margin:0;"><strong style="color:var(--secondary);">▸ Proceso de Registro:</strong> Tu registro en Guruxy <br>es 100% gratuito.</p>
+          <p style="margin:0;"><strong style="color:var(--secondary);">▸ Código promocional de bienvenida:</strong> Recibes <br>un cupón único al crear tu cuenta.</p>
+          <p style="margin:0;"><strong style="color:var(--secondary);">▸ Sin costo:</strong> Redimilo con el profesional que elijas <br>para un diagnóstico inicial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--primary-dark);color:#fff;padding:40px 20px;">
+      <div style="border-radius:16px;overflow:hidden;margin-bottom:24px;"><img src="images/homepage2.jpg" alt="" style="width:100%;display:block;" /></div>
+      <h2 style="font-size:24px;font-weight:300;margin:0;line-height:1.15;">Seguridad Financiera</h2>
+      <h3 style="font-size:24px;font-weight:800;margin:2px 0 16px;line-height:1.15;color:var(--secondary);">Total con Modelo Escrow</h3>
+      <p style="font-size:14px;line-height:1.55;color:#d6cbe0;margin:0 0 20px;">El modelo Escrow o depósito en garantía: <strong style="color:#fff;">Guruxy custodia el dinero de la transacción</strong> hasta <br>que ambas partes cumplan con lo acordado.</p>
       <div id="accordion-m"></div>
     </section>
 
-    <section style="background:var(--primary-darkest);color:#fff;padding:32px 18px;">
-      <p style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--secondary);margin:0 0 8px;">Para especialistas</p>
-      <h2 style="font-size:20px;font-weight:800;margin:0 0 16px;">Todo lo que ganás como Guru</h2>
-      <div id="tabs-buttons-m" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;"></div>
+    <section style="background:var(--primary-darkest);color:#fff;padding:40px 20px;">
+      <p style="font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--secondary);margin:0 0 8px;">Para especialistas</p>
+      <h2 style="font-size:24px;font-weight:800;margin:0 0 10px;">Todo lo que ganás como Guru en Guruxy</h2>
+      <p style="font-size:13px;line-height:1.5;color:#b8a6c8;margin:0;">Seis formas concretas en las que la plataforma trabaja para vos.</p>
+      <div id="tabs-buttons-m" style="display:flex;flex-wrap:wrap;gap:6px;margin:18px 0;"></div>
       <div id="tabs-content-m"></div>
     </section>
 
-    <section style="background:var(--primary-darkest);color:#fff;padding:32px 18px;">
-      <h2 style="font-size:20px;font-weight:800;margin:0 0 14px;">Cómo funciona</h2>
+    <section style="background:var(--primary-darkest);color:#fff;padding:40px 20px;">
+      <h2 style="font-size:24px;font-weight:800;margin:0 0 14px;">Cómo funciona</h2>
       <p style="font-size:12px;line-height:1.5;color:#c4a6e0;">Tarifa plana, no un porcentaje: pagás lo mismo sin importar tu especialidad.</p>
       <div style="border-radius:14px;overflow:hidden;margin-top:14px;"><img src="images/homepage3.jpg" alt="" style="width:100%;display:block;" /></div>
+    </section>
+
+    <section style="background:#f5f4f6;padding:48px 20px;">
+      <div style="text-align:center;margin-bottom:32px;">
+        <span style="display:inline-block;background:var(--primary);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:999px;">Operativa continua</span>
+        <h2 style="font-size:24px;font-weight:800;color:var(--primary);margin:16px 0 10px;">Un flujo compartido</h2>
+        <p style="font-size:14px;line-height:1.5;color:var(--muted);margin:0;">Antes, durante y después de cada sesión, en un solo lugar.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="border-radius:16px;padding:22px;background:linear-gradient(135deg, oklch(0.6 0.13 165), oklch(0.5 0.13 165));color:#fff;">
+          <span style="font-size:32px;font-weight:800;color:rgba(255,255,255,.15);">01</span>
+          <h3 style="font-size:17px;font-weight:700;margin:14px 0 8px;">Antes de la sesión</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 4px;">✓ Brief colaborativo</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 4px;">✓ Confirmación y cobro</p>
+        </div>
+        <div style="border-radius:16px;padding:22px;background:linear-gradient(135deg, oklch(0.6 0.13 230), oklch(0.5 0.13 230));color:#fff;">
+          <span style="font-size:32px;font-weight:800;color:rgba(255,255,255,.15);">02</span>
+          <h3 style="font-size:17px;font-weight:700;margin:14px 0 8px;">Durante la sesión</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 4px;">✓ Sala segura con video HD</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 4px;">✓ Notas compartidas</p>
+        </div>
+        <div style="border-radius:16px;padding:22px;background:linear-gradient(135deg, oklch(0.6 0.13 40), oklch(0.5 0.13 40));color:#fff;">
+          <span style="font-size:32px;font-weight:800;color:rgba(255,255,255,.15);">03</span>
+          <h3 style="font-size:17px;font-weight:700;margin:14px 0 8px;">Después de la sesión</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 4px;">✓ Encuesta + rating</p>
+          <p style="font-size:13px;color:rgba(255,255,255,.9);margin:0 0 4px;">✓ Liquidación automática</p>
+        </div>
+      </div>
     </section>
 
     <section style="background:#fff;padding:32px 18px;text-align:center;border-top:1px solid var(--border);">
@@ -422,12 +589,30 @@ function renderMobile(){
       <button class="btn" style="background:var(--secondary);color:var(--primary-dark);width:100%;margin-top:10px;">Quiero ser cliente</button>
       <button class="btn" style="background:var(--primary);color:#fff;width:100%;margin-top:8px;">Quiero ser Guru</button>
     </section>
+
+    <footer style="background:var(--primary-dark);color:#fff;padding:32px 20px;">
+      <div style="background:rgba(255,255,255,.04);border-radius:14px;padding:20px;margin-bottom:28px;">
+        <p style="font-size:17px;font-weight:800;margin:0 0 6px;">¿Eres Gurú?</p>
+        <p style="font-size:13px;color:#d6cbe0;margin:0 0 14px;">Únete hoy mismo y forma parte de la red de especialistas que impulsa resultados extraordinarios.</p>
+        <button class="btn" style="background:var(--secondary);color:var(--primary-dark);width:100%;">ÚNETE AHORA</button>
+      </div>
+      <p style="font-size:13px;line-height:1.6;color:#b8a6c8;margin:0 0 22px;">Conectamos a personas con expertos en múltiples disciplinas para resolver dudas y acelerar sus proyectos.</p>
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:20px;">
+        <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Preguntas frecuentes</a>
+        <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Privacidad</a>
+        <a href="#" style="color:#d6cbe0;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center;">Contacto</a>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:16px;">
+        <p style="font-size:11.5px;color:#a996b8;margin:0;">© Guruxy, 2026. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   `;
   document.getElementById('mobile-content').innerHTML = html;
   renderAccordionM();
   renderTabsM();
 }
 function toggleMenuM(){ menuOpenM = !menuOpenM; renderMobile(); }
+function toggleHeroTextM(){ heroTextOpenM = !heroTextOpenM; renderMobile(); }
 function renderAccordionM(){
   document.getElementById('accordion-m').innerHTML = accordionData.map((a,i)=>`
     <div style="border-top:1px solid rgba(255,255,255,.2);padding:12px 0;">

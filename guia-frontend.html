@@ -17,16 +17,26 @@
   .toolbar a{font-size:12.5px;font-weight:600;color:var(--primary);text-decoration:none;border:1px solid var(--border);padding:8px 14px;border-radius:8px;}
   h2{font-size:13px;font-family:ui-monospace,monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:48px 0 4px;}
   h3{font-size:22px;margin:0 0 20px;color:var(--primary);}
-  .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;transition:opacity .15s, background .15s;}
+  .card.checked{background:#fafbf9;opacity:.68;}
   .card b{color:var(--primary);}
   .card code{background:var(--card,#f3f1f7);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12.5px;}
+  .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:2px;}
   .tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;border-radius:999px;margin-bottom:8px;}
   .tag.done{background:#dcfce7;color:#16a34a;}
   .tag.open{background:#fef3c7;color:#b45309;}
   .tag.ask{background:#fee2e2;color:#dc2626;}
+  .meta{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+  .date{font-size:11.5px;color:var(--muted);font-family:ui-monospace,monospace;white-space:nowrap;}
+  .check{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;user-select:none;white-space:nowrap;}
+  .check input{width:16px;height:16px;accent-color:#16a34a;cursor:pointer;}
+  .card.checked .date{text-decoration:line-through;}
   ul{margin:8px 0 0;padding-left:20px;}
   li{margin-bottom:6px;font-size:14.5px;}
   p{font-size:14.5px;margin:8px 0 0;color:#3a3a42;}
+  .progress{position:sticky;top:57px;z-index:9;background:#fff;border-bottom:1px solid var(--border);margin:0 -24px 32px;padding:8px 20px 12px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+  .progress .bar{flex:1;height:6px;background:#eee;border-radius:999px;overflow:hidden;}
+  .progress .bar-fill{height:100%;background:#16a34a;border-radius:999px;transition:width .2s;}
 </style>
 </head>
 <body>
@@ -35,84 +45,218 @@
     <h1>Guía para el developer Front-End</h1>
     <a href="index.html">← Ver mockup</a>
   </div>
+  <div class="progress">
+    <span id="progress-label">0 / 0 cerrados</span>
+    <div class="bar"><div class="bar-fill" id="progress-bar" style="width:0%"></div></div>
+  </div>
 
-  <p style="font-size:15px;color:var(--muted);margin-bottom:8px;">Registro vivo de ajustes, recomendaciones, técnicas y pedidos pendientes sobre el home de Guruxy. Se actualiza a medida que avanza la revisión con el CEO y el CTO.</p>
+  <p style="font-size:15px;color:var(--muted);margin-bottom:8px;">Registro vivo de ajustes, recomendaciones, técnicas y pedidos pendientes sobre el home de Guruxy. Se actualiza a medida que avanza la revisión con el CEO y el CTO. Marcá el check de cada ítem cuando quede cerrado — el estado se guarda en este navegador.</p>
 
   <h2>01 — Ajustes ya aplicados</h2>
   <h3>Lo que cambió respecto al primer mockup</h3>
-  <div class="card"><span class="tag done">Hecho</span>
+  <div class="card" data-id="a1">
+    <div class="card-head">
+      <span class="tag done">Hecho</span>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Footer completo</b> agregado (desktop y mobile): banner "¿Eres Gurú?", links de FAQ/Privacidad/Términos/Políticas de datos, redes sociales en SVG (sin emoji), copyright y tagline — replicando el footer real de producción.</p>
   </div>
-  <div class="card"><span class="tag done">Hecho</span>
+  <div class="card" data-id="a2">
+    <div class="card-head">
+      <span class="tag done">Hecho</span>
+      <div class="meta"><span class="date">21 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Hero con paridad de contenido:</b> se sumó la línea de confianza post-CTA y el mini-grid "Todo lo que necesitas" (Agenda inteligente / Pagos seguros / Reuniones en vivo) que faltaba en la versión simplificada.</p>
   </div>
-  <div class="card"><span class="tag done">Hecho</span>
+  <div class="card" data-id="a3">
+    <div class="card-head">
+      <span class="tag done">Hecho</span>
+      <div class="meta"><span class="date">21 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Nav reestructurado:</b> el buscador ahora vive en la fila del nav (logo | buscador centrado | Iniciar sesión), reemplazando los botones de categoría que abrían un flyout roto en producción.</p>
   </div>
-  <div class="card"><span class="tag done">Hecho</span>
+  <div class="card" data-id="a4">
+    <div class="card-head">
+      <span class="tag done">Hecho</span>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Categorías completas:</b> 9 pestañas (se sacaron "Otros profesionales" y "Especialistas construcción" en un ajuste manual), en <code>flex-wrap</code> para desktop, con colores armonizados por categoría.</p>
   </div>
-  <div class="card"><span class="tag done">Hecho</span>
+  <div class="card" data-id="a5">
+    <div class="card-head">
+      <span class="tag done">Hecho</span>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Video del hero a <code>aspect-ratio:16/9</code> y full-bleed</b> (sin el límite del container) — el espacio queda dimensionado como un video real y llega borde a borde de la pantalla.</p>
   </div>
-  <div class="card"><span class="tag done">Hecho</span>
+  <div class="card" data-id="a6">
+    <div class="card-head">
+      <span class="tag done">Hecho</span>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Texto del Hero colapsable en mobile</b> (progressive disclosure) para no romper el "above the fold" en pantallas chicas — el párrafo descriptivo se esconde detrás de un botón "Ver descripción".</p>
   </div>
 
   <h2>02 — Recomendaciones para el desarrollo real</h2>
   <h3>Traducir estos ajustes al código de producción</h3>
-  <div class="card">
+  <div class="card" data-id="r1">
+    <div class="card-head">
+      <span class="tag open">Pendiente</span>
+      <div class="meta"><span class="date">19 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Arreglar el flyout de categorías roto</b> en <code>menu-bar.tsx</code>/<code>quick-link-panel.tsx</code> — <code>onActivate</code> nunca recibe un item real, el menú está muerto para todos los dispositivos, no solo mobile.</p>
   </div>
-  <div class="card">
+  <div class="card" data-id="r2">
+    <div class="card-head">
+      <span class="tag open">Pendiente</span>
+      <div class="meta"><span class="date">19 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Corregir <code>md:block</code> → <code>hidden md:block</code></b> en <code>NavigationBar.tsx</code> — hoy no oculta nada en mobile (es un no-op).</p>
   </div>
-  <div class="card">
+  <div class="card" data-id="r3">
+    <div class="card-head">
+      <span class="tag open">Pendiente</span>
+      <div class="meta"><span class="date">19 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Unificar colores</b> a los tokens <code>--primary</code>/<code>--secondary</code>/<code>--primary-dark</code>/<code>--primary-darkest</code> — sacar los <code>bg-purple-900</code>, hex sueltos y el tercer morado huérfano de <code>features.tsx</code>.</p>
   </div>
-  <div class="card">
+  <div class="card" data-id="r4">
+    <div class="card-head">
+      <span class="tag open">Pendiente</span>
+      <div class="meta"><span class="date">20 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
     <p><b>Reemplazar el copy de "banca digital"</b> en la sección de tabs — sigue en vivo en <code>guruxy.com</code>, viene de una referencia de bunq.com que nunca se reemplazó.</p>
   </div>
 
   <h2>03 — Hacks y técnicas usadas en este mockup</h2>
   <h3>Trucos concretos, para copiar directo</h3>
-  <div class="card"><b>Full-bleed (sangre completa):</b>
+  <div class="card" data-id="h1">
+    <div class="card-head">
+      <b>Full-bleed (sangre completa)</b>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Aplicado</label></div>
+    </div>
     <p>Sacar un elemento del <code>.container</code> y no ponerle padding lateral para que llegue borde a borde, aunque el resto de la página tenga un ancho máximo centrado.</p>
   </div>
-  <div class="card"><b>Aspect-ratio en vez de altura fija:</b>
+  <div class="card" data-id="h2">
+    <div class="card-head">
+      <b>Aspect-ratio en vez de altura fija</b>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Aplicado</label></div>
+    </div>
     <p><code>aspect-ratio: 16/9</code> en un contenedor reserva el espacio correcto para un video real, y escala solo con el ancho — no hay que recalcular la altura a mano en cada breakpoint.</p>
   </div>
-  <div class="card"><b>Sticky en cascada:</b>
+  <div class="card" data-id="h3">
+    <div class="card-head">
+      <b>Sticky en cascada</b>
+      <div class="meta"><span class="date">21 ago 2026</span><label class="check"><input type="checkbox" /> Aplicado</label></div>
+    </div>
     <p>Si el nav es <code>sticky; top:0</code> y necesitás otra barra pegada debajo, esa segunda barra va <code>sticky; top: [altura del nav en px]</code> — no <code>top:0</code> de nuevo, o se superponen.</p>
   </div>
-  <div class="card"><b>Salto de línea manual con <code>&lt;br&gt;</code>:</b>
+  <div class="card" data-id="h4">
+    <div class="card-head">
+      <b>Salto de línea manual con <code>&lt;br&gt;</code></b>
+      <div class="meta"><span class="date">20 ago 2026</span><label class="check"><input type="checkbox" /> Aplicado</label></div>
+    </div>
     <p>Cuando un título necesita cortar en un punto exacto (no donde el navegador decida), un <code>&lt;br&gt;</code> en el lugar preciso es más confiable que jugar con <code>max-width</code> a ciegas — usado varias veces en este mockup.</p>
   </div>
-  <div class="card"><b>Colores categóricos armonizados con <code>oklch()</code>:</b>
+  <div class="card" data-id="h5">
+    <div class="card-head">
+      <b>Colores categóricos armonizados con <code>oklch()</code></b>
+      <div class="meta"><span class="date">21 ago 2026</span><label class="check"><input type="checkbox" /> Aplicado</label></div>
+    </div>
     <p>En vez de elegir hex al azar para cada categoría/tag, fijar el mismo <i>chroma</i> y <i>lightness</i> en <code>oklch()</code> y variar solo el <i>hue</i> — todos los colores quedan "de la misma familia" visualmente aunque sean distintos.</p>
   </div>
-  <div class="card"><b>Progressive disclosure:</b>
+  <div class="card" data-id="h6">
+    <div class="card-head">
+      <b>Progressive disclosure</b>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Aplicado</label></div>
+    </div>
     <p>Texto secundario detrás de un botón con flecha (▾) que expande/colapsa — mantiene el "above the fold" liviano en mobile sin borrar información.</p>
   </div>
 
   <h2>04 — Buenas prácticas (reglas del manual de patrones)</h2>
   <h3>No negociables para código nuevo</h3>
-  <div class="card"><p>1. <b>Nunca un color literal</b> — siempre <code>bg-primary</code>/<code>bg-secondary</code>, nunca <code>bg-purple-900</code> ni hex sueltos.</p></div>
-  <div class="card"><p>2. <b>Ningún trigger de menú solo con hover</b> — todo lo que abre un panel soporta click/tap desde el día uno (Radix <code>DropdownMenu</code>/<code>Popover</code>).</p></div>
-  <div class="card"><p>3. <b>Un solo componente por función</b> — un spinner, un modal, un date picker. Variantes son props, no archivos nuevos.</p></div>
-  <div class="card"><p>4. <b>Nada de emoji/dingbats como ícono</b> — siempre SVG propio.</p></div>
-  <div class="card"><p>5. <b>44px mínimo en cualquier elemento táctil</b> — botones, links de menú, íconos clickeables.</p></div>
+  <div class="card" data-id="b1">
+    <div class="card-head">
+      <p style="margin:0;">1. <b>Nunca un color literal</b> — siempre <code>bg-primary</code>/<code>bg-secondary</code>, nunca <code>bg-purple-900</code> ni hex sueltos.</p>
+      <div class="meta"><span class="date">18 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
+  </div>
+  <div class="card" data-id="b2">
+    <div class="card-head">
+      <p style="margin:0;">2. <b>Ningún trigger de menú solo con hover</b> — todo lo que abre un panel soporta click/tap desde el día uno (Radix <code>DropdownMenu</code>/<code>Popover</code>).</p>
+      <div class="meta"><span class="date">18 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
+  </div>
+  <div class="card" data-id="b3">
+    <div class="card-head">
+      <p style="margin:0;">3. <b>Un solo componente por función</b> — un spinner, un modal, un date picker. Variantes son props, no archivos nuevos.</p>
+      <div class="meta"><span class="date">18 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
+  </div>
+  <div class="card" data-id="b4">
+    <div class="card-head">
+      <p style="margin:0;">4. <b>Nada de emoji/dingbats como ícono</b> — siempre SVG propio.</p>
+      <div class="meta"><span class="date">18 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
+  </div>
+  <div class="card" data-id="b5">
+    <div class="card-head">
+      <p style="margin:0;">5. <b>44px mínimo en cualquier elemento táctil</b> — botones, links de menú, íconos clickeables.</p>
+      <div class="meta"><span class="date">18 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
+    </div>
+  </div>
 
   <h2>05 — Sugerencias para pedirle a la agencia de contenido</h2>
   <h3>Esto no se resuelve con CSS — hay que pedirlo como asset nuevo</h3>
-  <div class="card"><span class="tag ask">Pedir a la agencia</span>
+  <div class="card" data-id="s1">
+    <div class="card-head">
+      <span class="tag ask">Pedir a la agencia</span>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Solicitado</label></div>
+    </div>
     <p><b>Video del hero adaptado a mobile.</b> El texto que aparece en el video está grabado dentro de la pieza (parte de la composición/animación), no es un subtítulo ni un closed caption superpuesto por el reproductor. Achicar el mismo video para mobile no alcanza: el texto se vuelve ilegible o queda mal encuadrado en una pantalla angosta. Se necesita una versión de video pensada para mobile (otro encuadre, otro tamaño de texto), no un simple resize del archivo de desktop.</p>
   </div>
-  <div class="card"><span class="tag ask">Pedir a la agencia</span>
+  <div class="card" data-id="s2">
+    <div class="card-head">
+      <span class="tag ask">Pedir a la agencia</span>
+      <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Solicitado</label></div>
+    </div>
     <p><b>Banco de imágenes coherente.</b> Hoy las fotos del home no cuentan una historia consistente (una foto de veterinaria en la sección "Cómo funciona", fotos de stock genéricas sin relación clara con Guruxy). Un banco de imágenes curado — mismo estilo de iluminación, mismo tipo de escena, gente real de las categorías que ofrece la plataforma — le daría más coherencia visual a todo el scroll.</p>
   </div>
 
-  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.</p>
+  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: 22 ago 2026 — revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.</p>
 </div>
+
+<script>
+(function(){
+  var STORE_KEY = 'guruxy-guia-checks';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e) { state = {}; }
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card[data-id]'));
+  var bar = document.getElementById('progress-bar');
+  var label = document.getElementById('progress-label');
+
+  function updateProgress(){
+    var total = cards.length;
+    var done = cards.filter(function(c){ return c.classList.contains('checked'); }).length;
+    label.textContent = done + ' / ' + total + ' cerrados';
+    bar.style.width = (total ? (done/total*100) : 0) + '%';
+  }
+
+  cards.forEach(function(card){
+    var id = card.getAttribute('data-id');
+    var input = card.querySelector('.check input');
+    if (state[id]) { input.checked = true; card.classList.add('checked'); }
+    input.addEventListener('change', function(){
+      state[id] = input.checked;
+      card.classList.toggle('checked', input.checked);
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch(e) {}
+      updateProgress();
+    });
+  });
+
+  updateProgress();
+})();
+</script>
 </body>
 </html>
