@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Guruxy Home — Guía para el developer Front-End</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --primary:#452767; --primary-dark:#2c1943; --primary-darkest:#170d24; --secondary:#ffc813;
+    --ink:#1a1a1a; --muted:#6b7280; --border:#e5e7eb;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#f7f7f9;line-height:1.6;}
+  .page{max-width:880px;margin:0 auto;padding:0 24px 100px;}
+  .toolbar{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--border);padding:14px 20px;margin:0 -24px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .toolbar h1{font-size:15px;margin:0;color:var(--primary);}
+  .toolbar a{font-size:12.5px;font-weight:600;color:var(--primary);text-decoration:none;border:1px solid var(--border);padding:8px 14px;border-radius:8px;}
+  h2{font-size:13px;font-family:ui-monospace,monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:48px 0 4px;}
+  h3{font-size:22px;margin:0 0 20px;color:var(--primary);}
+  .card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+  .card b{color:var(--primary);}
+  .card code{background:var(--card,#f3f1f7);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12.5px;}
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;border-radius:999px;margin-bottom:8px;}
+  .tag.done{background:#dcfce7;color:#16a34a;}
+  .tag.open{background:#fef3c7;color:#b45309;}
+  .tag.ask{background:#fee2e2;color:#dc2626;}
+  ul{margin:8px 0 0;padding-left:20px;}
+  li{margin-bottom:6px;font-size:14.5px;}
+  p{font-size:14.5px;margin:8px 0 0;color:#3a3a42;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="toolbar">
+    <h1>Guía para el developer Front-End</h1>
+    <a href="index.html">← Ver mockup</a>
+  </div>
+
+  <p style="font-size:15px;color:var(--muted);margin-bottom:8px;">Registro vivo de ajustes, recomendaciones, técnicas y pedidos pendientes sobre el home de Guruxy. Se actualiza a medida que avanza la revisión con el CEO y el CTO.</p>
+
+  <h2>01 — Ajustes ya aplicados</h2>
+  <h3>Lo que cambió respecto al primer mockup</h3>
+  <div class="card"><span class="tag done">Hecho</span>
+    <p><b>Footer completo</b> agregado (desktop y mobile): banner "¿Eres Gurú?", links de FAQ/Privacidad/Términos/Políticas de datos, redes sociales en SVG (sin emoji), copyright y tagline — replicando el footer real de producción.</p>
+  </div>
+  <div class="card"><span class="tag done">Hecho</span>
+    <p><b>Hero con paridad de contenido:</b> se sumó la línea de confianza post-CTA y el mini-grid "Todo lo que necesitas" (Agenda inteligente / Pagos seguros / Reuniones en vivo) que faltaba en la versión simplificada.</p>
+  </div>
+  <div class="card"><span class="tag done">Hecho</span>
+    <p><b>Nav reestructurado:</b> el buscador ahora vive en la fila del nav (logo | buscador centrado | Iniciar sesión), reemplazando los botones de categoría que abrían un flyout roto en producción.</p>
+  </div>
+  <div class="card"><span class="tag done">Hecho</span>
+    <p><b>Categorías completas:</b> 9 pestañas (se sacaron "Otros profesionales" y "Especialistas construcción" en un ajuste manual), en <code>flex-wrap</code> para desktop, con colores armonizados por categoría.</p>
+  </div>
+  <div class="card"><span class="tag done">Hecho</span>
+    <p><b>Video del hero a <code>aspect-ratio:16/9</code> y full-bleed</b> (sin el límite del container) — el espacio queda dimensionado como un video real y llega borde a borde de la pantalla.</p>
+  </div>
+  <div class="card"><span class="tag done">Hecho</span>
+    <p><b>Texto del Hero colapsable en mobile</b> (progressive disclosure) para no romper el "above the fold" en pantallas chicas — el párrafo descriptivo se esconde detrás de un botón "Ver descripción".</p>
+  </div>
+
+  <h2>02 — Recomendaciones para el desarrollo real</h2>
+  <h3>Traducir estos ajustes al código de producción</h3>
+  <div class="card">
+    <p><b>Arreglar el flyout de categorías roto</b> en <code>menu-bar.tsx</code>/<code>quick-link-panel.tsx</code> — <code>onActivate</code> nunca recibe un item real, el menú está muerto para todos los dispositivos, no solo mobile.</p>
+  </div>
+  <div class="card">
+    <p><b>Corregir <code>md:block</code> → <code>hidden md:block</code></b> en <code>NavigationBar.tsx</code> — hoy no oculta nada en mobile (es un no-op).</p>
+  </div>
+  <div class="card">
+    <p><b>Unificar colores</b> a los tokens <code>--primary</code>/<code>--secondary</code>/<code>--primary-dark</code>/<code>--primary-darkest</code> — sacar los <code>bg-purple-900</code>, hex sueltos y el tercer morado huérfano de <code>features.tsx</code>.</p>
+  </div>
+  <div class="card">
+    <p><b>Reemplazar el copy de "banca digital"</b> en la sección de tabs — sigue en vivo en <code>guruxy.com</code>, viene de una referencia de bunq.com que nunca se reemplazó.</p>
+  </div>
+
+  <h2>03 — Hacks y técnicas usadas en este mockup</h2>
+  <h3>Trucos concretos, para copiar directo</h3>
+  <div class="card"><b>Full-bleed (sangre completa):</b>
+    <p>Sacar un elemento del <code>.container</code> y no ponerle padding lateral para que llegue borde a borde, aunque el resto de la página tenga un ancho máximo centrado.</p>
+  </div>
+  <div class="card"><b>Aspect-ratio en vez de altura fija:</b>
+    <p><code>aspect-ratio: 16/9</code> en un contenedor reserva el espacio correcto para un video real, y escala solo con el ancho — no hay que recalcular la altura a mano en cada breakpoint.</p>
+  </div>
+  <div class="card"><b>Sticky en cascada:</b>
+    <p>Si el nav es <code>sticky; top:0</code> y necesitás otra barra pegada debajo, esa segunda barra va <code>sticky; top: [altura del nav en px]</code> — no <code>top:0</code> de nuevo, o se superponen.</p>
+  </div>
+  <div class="card"><b>Salto de línea manual con <code>&lt;br&gt;</code>:</b>
+    <p>Cuando un título necesita cortar en un punto exacto (no donde el navegador decida), un <code>&lt;br&gt;</code> en el lugar preciso es más confiable que jugar con <code>max-width</code> a ciegas — usado varias veces en este mockup.</p>
+  </div>
+  <div class="card"><b>Colores categóricos armonizados con <code>oklch()</code>:</b>
+    <p>En vez de elegir hex al azar para cada categoría/tag, fijar el mismo <i>chroma</i> y <i>lightness</i> en <code>oklch()</code> y variar solo el <i>hue</i> — todos los colores quedan "de la misma familia" visualmente aunque sean distintos.</p>
+  </div>
+  <div class="card"><b>Progressive disclosure:</b>
+    <p>Texto secundario detrás de un botón con flecha (▾) que expande/colapsa — mantiene el "above the fold" liviano en mobile sin borrar información.</p>
+  </div>
+
+  <h2>04 — Buenas prácticas (reglas del manual de patrones)</h2>
+  <h3>No negociables para código nuevo</h3>
+  <div class="card"><p>1. <b>Nunca un color literal</b> — siempre <code>bg-primary</code>/<code>bg-secondary</code>, nunca <code>bg-purple-900</code> ni hex sueltos.</p></div>
+  <div class="card"><p>2. <b>Ningún trigger de menú solo con hover</b> — todo lo que abre un panel soporta click/tap desde el día uno (Radix <code>DropdownMenu</code>/<code>Popover</code>).</p></div>
+  <div class="card"><p>3. <b>Un solo componente por función</b> — un spinner, un modal, un date picker. Variantes son props, no archivos nuevos.</p></div>
+  <div class="card"><p>4. <b>Nada de emoji/dingbats como ícono</b> — siempre SVG propio.</p></div>
+  <div class="card"><p>5. <b>44px mínimo en cualquier elemento táctil</b> — botones, links de menú, íconos clickeables.</p></div>
+
+  <h2>05 — Sugerencias para pedirle a la agencia de contenido</h2>
+  <h3>Esto no se resuelve con CSS — hay que pedirlo como asset nuevo</h3>
+  <div class="card"><span class="tag ask">Pedir a la agencia</span>
+    <p><b>Video del hero adaptado a mobile.</b> El texto que aparece en el video está grabado dentro de la pieza (parte de la composición/animación), no es un subtítulo ni un closed caption superpuesto por el reproductor. Achicar el mismo video para mobile no alcanza: el texto se vuelve ilegible o queda mal encuadrado en una pantalla angosta. Se necesita una versión de video pensada para mobile (otro encuadre, otro tamaño de texto), no un simple resize del archivo de desktop.</p>
+  </div>
+  <div class="card"><span class="tag ask">Pedir a la agencia</span>
+    <p><b>Banco de imágenes coherente.</b> Hoy las fotos del home no cuentan una historia consistente (una foto de veterinaria en la sección "Cómo funciona", fotos de stock genéricas sin relación clara con Guruxy). Un banco de imágenes curado — mismo estilo de iluminación, mismo tipo de escena, gente real de las categorías que ofrece la plataforma — le daría más coherencia visual a todo el scroll.</p>
+  </div>
+
+  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.</p>
+</div>
+</body>
+</html>
