@@ -26,6 +26,8 @@
   .tag.done{background:#dcfce7;color:#16a34a;}
   .tag.open{background:#fef3c7;color:#b45309;}
   .tag.ask{background:#fee2e2;color:#dc2626;}
+  .tag.partial{background:#dbeafe;color:#1d4ed8;}
+  .verify{display:block;margin-top:8px;font-size:12px;color:#1d4ed8;font-family:ui-monospace,monospace;}
   .meta{display:flex;align-items:center;gap:14px;flex-shrink:0;}
   .date{font-size:11.5px;color:var(--muted);font-family:ui-monospace,monospace;white-space:nowrap;}
   .check{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;user-select:none;white-space:nowrap;}
@@ -104,10 +106,11 @@
   <h3>Traducir estos ajustes al código de producción</h3>
   <div class="card" data-id="r1">
     <div class="card-head">
-      <span class="tag open">Pendiente</span>
+      <span class="tag partial">Parcial</span>
       <div class="meta"><span class="date">19 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
     </div>
     <p><b>Arreglar el flyout de categorías roto</b> en <code>menu-bar.tsx</code>/<code>quick-link-panel.tsx</code> — <code>onActivate</code> nunca recibe un item real, el menú está muerto para todos los dispositivos, no solo mobile.</p>
+    <span class="verify">✓ 7 sep 2026 — onActivate(null) → onActivate(item) corregido en producción. Pero el trigger sigue siendo solo onMouseEnter/onFocus, sin onClick: para touch sigue inalcanzable.</span>
   </div>
   <div class="card" data-id="r2">
     <div class="card-head">
@@ -115,6 +118,7 @@
       <div class="meta"><span class="date">19 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
     </div>
     <p><b>Corregir <code>md:block</code> → <code>hidden md:block</code></b> en <code>NavigationBar.tsx</code> — hoy no oculta nada en mobile (es un no-op).</p>
+    <span class="verify">✓ 7 sep 2026 — verificado sin cambios: el nav pasó de sticky a fixed, pero md:block sigue igual, no oculta nada en mobile.</span>
   </div>
   <div class="card" data-id="r3">
     <div class="card-head">
@@ -122,13 +126,15 @@
       <div class="meta"><span class="date">19 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
     </div>
     <p><b>Unificar colores</b> a los tokens <code>--primary</code>/<code>--secondary</code>/<code>--primary-dark</code>/<code>--primary-darkest</code> — sacar los <code>bg-purple-900</code>, hex sueltos y el tercer morado huérfano de <code>features.tsx</code>.</p>
+    <span class="verify">✓ 7 sep 2026 — verificado sin cambios: bg-purple-900 sigue literal en NavigationBar.tsx.</span>
   </div>
   <div class="card" data-id="r4">
     <div class="card-head">
-      <span class="tag open">Pendiente</span>
+      <span class="tag done">Hecho</span>
       <div class="meta"><span class="date">20 ago 2026</span><label class="check"><input type="checkbox" /> Cerrado</label></div>
     </div>
     <p><b>Reemplazar el copy de "banca digital"</b> en la sección de tabs — sigue en vivo en <code>guruxy.com</code>, viene de una referencia de bunq.com que nunca se reemplazó.</p>
+    <span class="verify">✓ 7 sep 2026 — verificado en vivo en guruxy.com: el copy ya no aparece en el sitio.</span>
   </div>
 
   <h2>03 — Hacks y técnicas usadas en este mockup</h2>
@@ -213,10 +219,11 @@
   <h3>Esto no se resuelve con CSS — hay que pedirlo como asset nuevo</h3>
   <div class="card" data-id="s1">
     <div class="card-head">
-      <span class="tag ask">Pedir a la agencia</span>
+      <span class="tag done">Recibido</span>
       <div class="meta"><span class="date">22 ago 2026</span><label class="check"><input type="checkbox" /> Solicitado</label></div>
     </div>
     <p><b>Video del hero adaptado a mobile.</b> El texto que aparece en el video está grabado dentro de la pieza (parte de la composición/animación), no es un subtítulo ni un closed caption superpuesto por el reproductor. Achicar el mismo video para mobile no alcanza: el texto se vuelve ilegible o queda mal encuadrado en una pantalla angosta. Se necesita una versión de video pensada para mobile (otro encuadre, otro tamaño de texto), no un simple resize del archivo de desktop.</p>
+    <span class="verify">✓ 7 sep 2026 — asset real de la agencia recibido y en producción (hero.tsx, commit 1 sep), con estructuras separadas para mobile y desktop. Pendiente confirmar en vivo la reproducción efectiva del archivo.</span>
   </div>
   <div class="card" data-id="s2">
     <div class="card-head">
@@ -226,7 +233,7 @@
     <p><b>Banco de imágenes coherente.</b> Hoy las fotos del home no cuentan una historia consistente (una foto de veterinaria en la sección "Cómo funciona", fotos de stock genéricas sin relación clara con Guruxy). Un banco de imágenes curado — mismo estilo de iluminación, mismo tipo de escena, gente real de las categorías que ofrece la plataforma — le daría más coherencia visual a todo el scroll.</p>
   </div>
 
-  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: 22 ago 2026 — revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.</p>
+  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: 22 ago 2026 — revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.<br>Última verificación contra GitHub: 7 sep 2026 (Harold, CTO) — commits reales de guruxy-frontend/guruxy-backend, ver notas ✓ en cada tarjeta.</p>
 </div>
 
 <script>
