@@ -119,6 +119,7 @@
     </div>
     <p><b>Corregir <code>md:block</code> → <code>hidden md:block</code></b> en <code>NavigationBar.tsx</code> — hoy no oculta nada en mobile (es un no-op).</p>
     <span class="verify">✓ 7 sep 2026 — verificado sin cambios: el nav pasó de sticky a fixed, pero md:block sigue igual, no oculta nada en mobile.</span>
+    <span class="verify">✓ 12 sep 2026 — sigue sin resolverse, ahora bajo otra forma: la clase quedó en <code>'relative block text-slate-900'</code> (se removió el <code>md:block</code>, commit 9 sep). Causa raíz confirmada: el spacer de abajo (<code>h-32 md:h-20</code>) solo reserva la altura del TopBar, no la de esta fila del menú — en mobile el header fijo termina tapando el contenido de la página. Fix de una línea: <code>className='relative hidden text-slate-900 md:block'</code>, el mismo patrón <code>hidden</code>/<code>md:</code> que <code>top-bar.tsx</code> ya usa bien en el mismo directorio.</span>
   </div>
   <div class="card" data-id="r3">
     <div class="card-head">
@@ -247,7 +248,7 @@
     <p><b>Banco de imágenes coherente.</b> Hoy las fotos del home no cuentan una historia consistente (una foto de veterinaria en la sección "Cómo funciona", fotos de stock genéricas sin relación clara con Guruxy). Un banco de imágenes curado — mismo estilo de iluminación, mismo tipo de escena, gente real de las categorías que ofrece la plataforma — le daría más coherencia visual a todo el scroll.</p>
   </div>
 
-  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: 22 ago 2026 — revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.<br>Última verificación contra GitHub: 7 sep 2026 (Harold, CTO) — commits reales de guruxy-frontend/guruxy-backend, ver notas ✓ en cada tarjeta.</p>
+  <p style="margin-top:56px;font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;">Última actualización: 22 ago 2026 — revisión conjunta CEO (Mauricio) · CTO (Harold) · Developer Front-End.<br>Última verificación contra GitHub: 12 sep 2026 (Harold, CTO) — commits reales de guruxy-frontend/guruxy-backend, ver notas ✓ en cada tarjeta.</p>
 </div>
 
 <script>
